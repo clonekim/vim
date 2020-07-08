@@ -39,9 +39,11 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 syntax on
 
 set noerrorbells
-set tabstop=4 softtabstop=4
+set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab
+set smarttab
 set smartindent
 set nu
 set nowrap
@@ -55,7 +57,8 @@ set showcmd
 set showmatch
 set laststatus=2
 set encoding=UTF-8
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
+set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 ```
