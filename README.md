@@ -68,7 +68,7 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 ### 플러그인을 설치해보자
 
-문법은 begin~end사이에 Plug [이름] 이렇게 작성한다.  
+문법은 begin\~end사이에 Plug [이름] 이렇게 작성한다.  
 begin('~/.vim/plugged')라고 작성하여 플러그인의 설치경로를 줄수 있다.
 ```
 call plug#begin('~/.vim/plugged')
