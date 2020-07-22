@@ -1,6 +1,9 @@
 # VIM
 
-## VI버전을 8.2 이상으로 업그레이드
+ vim 이나 neovim를 설치한다
+ 
+
+## vim을 8.2 이상으로 업그레이드 할 경우
 
 ### 우분투리눅스
 
@@ -39,15 +42,18 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 syntax on
 
 set noerrorbells
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
+set autoindent
+set copyindent
 set smarttab
 set smartindent
 set nu
 set nowrap
 set smartcase
+set nohidden
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
@@ -80,9 +86,10 @@ call plug#end()
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'dart-lang/dart-vim-plugin' 
 Plug 'fatih/vim-go'
-Plug 'nsf/gocode'
+Plug 'nsf/gocode', {'rtp': 'nvim' }
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator' 
 Plug 'vim-airline/vim-airline' 
@@ -99,16 +106,75 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
 
 
-let mapleader = " "
+let mapleader = ","
 
 nmap <leader>w :w<CR>
 nmap <leader>x :x<CR>
 nmap <leader>q :q<CR> 
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
 
+" fast save and close
+nmap <leader>w :w<CR>
+nmap <leader>x :x<CR>
+nmap <leader>q :q<CR>
+  
+" insert blank line before current line without leaving insert mode
+imap <leader>o <c-o><s-o>
+  
+" move up/down consider wrapped lines
+nnoremap j gj
+nnoremap k gk
+  
+" fix indentation
+nnoremap <leader>i mzgg=G`z<CR>
+  
+" turn off search highlights
+nnoremap <leader><space> :nohlsearch<CR>
+  
+" move through grep results
+nmap <silent> <right> :cnext<CR>
+nmap <silent> <left> :cprev<CR>
+ 
+" buffers
+nnoremap <tab> :bn<CR>
+nnoremap <s-tab> :bp<CR>
+nnoremap <leader>bd :bdelete<CR>
+ 
+" navigation
+nnoremap <c-j> <c-w><c-j>
+nnoremap <c-k> <c-w><c-k>
+nnoremap <c-l> <c-w><c-l>
+nnoremap <c-h> <c-w><c-h>
+
+nnoremap <c-p> :FZF<CR>
+
+ 
+"" Indentation rules    
+augroup vimrc-javascript    
+  autocmd!    
+  autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent    
+  autocmd FileType vue set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent    
+  autocmd FileType jsx set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent    
+  autocmd FileType tsx set tabstop=2|set shiftwidth=2|set expandtab sottabstop=2 smartindent    
+  autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent    
+  autocmd FileType less set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent    
+  autocmd FileType scss set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent    
+  autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent    
+  autocmd FileType css set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent    
+augroup END    
+    
+"" Git    
+noremap <Leader>gs :Gstatus<CR>    
+noremap <Leader>ga :Gwrite<CR>    
+noremap <Leader>gc :Gcommit<CR>    
+noremap <Leader>gsh :Gpush<CR>    
+noremap <Leader>gb :Gblame<CR>    
+noremap <Leader>gr :Gremove<CR>    
+noremap <Leader>gll :Gpull<CR>    
+noremap <Leader>gd :Gvdiff<CR>    
+    
+map <C-n> :NERDTreeToggle<CR>    
+let NERDTreeShowHidden=0
+
+nnoremap <C-F> :NERDTreeFind<CR>    
+nnoremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
 ```
-
-
