@@ -31,7 +31,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-~/.vimrc를 작성한다
+~/.vimrc를 작성한다  
+nvim의 경우 ~/.config/nvim/init.vim 이다  
 
 ### 기본적인 기능을 아래와 같이 작성한다
 
