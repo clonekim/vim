@@ -2,27 +2,24 @@
 
  vim 이나 neovim를 설치한다
  
+## 설치
 
-## vim을 8.2 이상으로 업그레이드 할 경우
-
-### 우분투리눅스
-
+1. [NeoVim](https://neovim.io/) 을 설치하거나
+2. 리눅스에 이미 vim 설치 되었다면 업그레이드를 권장한다  
+아래는 vim을 8.2 이상으로 업그레이드 하게 된다
 - install 
 ```
 sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
 sudo apt install vim
 ```
-
 - uninstall
 ```
 sudo apt remove vim
 sudo add-apt-repository --remove ppa:jonathonf/vim
 ```
-
-### 윈도우즈
-
-https://www.vim.org/download.php 에서 다운로드 한다
+3. 윈도우즈의 경우 아래에서 다운로드  
+https://www.vim.org/download.php
 
 
 ## 플러그인
@@ -178,3 +175,16 @@ let NERDTreeShowHidden=0
 nnoremap <C-F> :NERDTreeFind<CR>    
 nnoremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
 ```
+
+## Ctags
+
+1. ctags가 없으면 설치
+```
+sudo apt  install ctags
+```
+
+2. 해당 프로젝트에서 ctag 생성
+```
+find . -name '*.java' -exec ctag --append {} \;
+```
+
