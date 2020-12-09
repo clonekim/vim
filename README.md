@@ -186,6 +186,6 @@ sudo apt  install ctags
 
 2. 해당 프로젝트에서 ctag 생성
 ```
-find . -name '*.java' -exec ctag --append {} \;
+find . -name '*.java' -exec ctags --append {} \;
 ```
 
