@@ -26,6 +26,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'jparise/vim-graphql'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
+"Prettier <Leader>p로 호출
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
