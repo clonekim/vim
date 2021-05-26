@@ -12,7 +12,8 @@ Plug 'nsf/gocode', { 'rtp': 'nvim'  }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-airline/vim-airline'
 
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
+Plug 'jreybert/vimagit'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'pangloss/vim-javascript'
