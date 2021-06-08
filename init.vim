@@ -46,6 +46,7 @@ syntax on
 colorscheme gruvbox
 set bg=dark
 highlight Normal ctermbg=black ctermfg=white
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 set autoindent
 set copyindent
@@ -88,6 +89,7 @@ set showcmd
 set showmatch
 set smartcase
 set smarttab
+set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 
 set tabstop=2
 set wildmenu
@@ -131,6 +133,10 @@ nnoremap <c-h> <c-w><c-h>
 
 nnoremap <c-p> :FZF<CR>
 
+"" Ctrlp
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_use_caching = 0
 
 
 "" Indentation rules
