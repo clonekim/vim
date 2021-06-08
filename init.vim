@@ -103,6 +103,9 @@ nmap <leader>w :w<CR>
 nmap <leader>x :x<CR>
 nmap <leader>q :q<CR>
 
+" mouse option
+map <F5> <ESC>:set mouse=a<CR>
+map <F6> <ESC>:set mouse-=a<CR>
 
 " move up/down consider wrapped lines
 nnoremap j gj
