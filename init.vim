@@ -34,7 +34,7 @@ Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'ctrlpvim/ctrlp.vim'
 
-
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
