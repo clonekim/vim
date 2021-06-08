@@ -1,41 +1,53 @@
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'tpope/vim-surround'
+Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
+
+Plug 'bagrat/vim-buffet'
+Plug 'vim-airline/vim-airline'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
-Plug 'dart-lang/dart-vim-plugin'
-
 Plug 'fatih/vim-go'
 Plug 'nsf/gocode', { 'rtp': 'nvim'  }
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'vim-airline/vim-airline'
+Plug 'dart-lang/dart-vim-plugin'
 
-"Plug 'tpope/vim-fugitive'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'christoomey/vim-tmux-navigator'
+
+
 Plug 'jreybert/vimagit'
 Plug 'airblade/vim-gitgutter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'tpope/vim-surround'
-Plug 'Yggdroot/indentLine'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'jparise/vim-graphql'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-
-"Prettier <Leader>p로 호출
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+Plug 'jparise/vim-graphql'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'ctrlpvim/ctrlp.vim'
+
+
+
 call plug#end()
 
 "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"let base16colorspace=256
 
 syntax on
 
+colorscheme gruvbox
+set bg=dark
+highlight Normal ctermbg=black ctermfg=white
+
 set autoindent
-"let base16colorspace=256
 set copyindent
 set cmdheight=2
 set clipboard+=unnamedplus
@@ -60,7 +72,6 @@ set nobackup
 set noswapfile
 set nowritebackup
 
-"set paste
 set relativenumber
 set softtabstop=2
 set shiftwidth=2
@@ -76,27 +87,20 @@ endif
 set showcmd
 set showmatch
 set smartcase
+set smarttab
 
 set tabstop=2
 set wildmenu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
-
-nnoremap <space> za
-"let base16colorspace=256
-
 let mapleader=" " 
 
-" better ESC
-"inoremap jj <esc>
 
 " fast save and close
 nmap <leader>w :w<CR>
 nmap <leader>x :x<CR>
 nmap <leader>q :q<CR>
 
-" insert blank line before current line without leaving insert mode
-imap <leader>o <c-o><s-o>
 
 " move up/down consider wrapped lines
 nnoremap j gj
@@ -118,7 +122,7 @@ nnoremap <tab> :bn<CR>
 nnoremap <s-tab> :bp<CR>
 nnoremap <leader>k :bdelete<CR>
 
-" split navigatio
+" split navigation
 nnoremap <c-j> <c-w><c-j>
 nnoremap <c-k> <c-w><c-k>
 nnoremap <c-l> <c-w><c-l>
@@ -143,24 +147,25 @@ augroup vimrc-javascript
   autocmd FileType css set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
 augroup END
 
+"" NERDTree
+let NERDTreeShowHidden=0
+let g:NERDTreeGitStatusWithFlags = 1
+let g:NERDTreeIgnore = ['^node_modules$']
+map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-F> :NERDTreeFind<CR>
+nnoremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
+
+
 "" Git
 noremap <Leader>gs :Gstatus<CR>
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
 noremap <Leader>gsh :Gpush<CR>
-
 noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gr :Gremove<CR>
 noremap <Leader>gll :Gpull<CR>
 noremap <Leader>gd :Gvdiff<CR>
 
-let NERDTreeShowHidden=0
-map <C-n> :NERDTreeToggle<CR>
-nnoremap <C-F> :NERDTreeFind<CR>
-nnoremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
-
-"Color Schema
-"color desert
 
 
 
@@ -205,6 +210,18 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-hi Pmenu ctermbg=black ctermfg=white
+nmap <leader>1 <Plug>BuffetSwitch(1)
+nmap <leader>2 <Plug>BuffetSwitch(2)
+nmap <leader>3 <Plug>BuffetSwitch(3)
+nmap <leader>4 <Plug>BuffetSwitch(4)
+nmap <leader>5 <Plug>BuffetSwitch(5)
+nmap <leader>6 <Plug>BuffetSwitch(6)
+nmap <leader>7 <Plug>BuffetSwitch(7)
+nmap <leader>8 <Plug>BuffetSwitch(8)
+nmap <leader>9 <Plug>BuffetSwitch(9)
+nmap <leader>0 <Plug>BuffetSwitch(10)
+
+
+function! g:BuffetSetCustomColors()
+  hi! BuffetCurrentBuffer cterm=NONE ctermbg=black ctermfg=white guibg=#0000FF guifg=#000000
+endfunction
