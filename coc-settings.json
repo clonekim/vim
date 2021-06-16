@@ -1,101 +1,103 @@
 {
-    "languageserver": {
-	"python": {
-	    "command": "python",
-	    "args": [
-		"-mpyls",
-		"-vv",
-		"--log-file",
-		"/tmp/lsp_python.log"
-	    ],
-	    "trace.server": "verbose",
-	    "filetypes": [
-		"python"
-	    ],
-	    "settings": {
-		"pyls": {
-		    "enable": true,
-		    "trace": {
-			"server": "verbose"
-		    },
-		    "commandPath": "",
-		    "configurationSources": [
-			"pycodestyle"
-		    ],
-		    "plugins": {
-			"jedi_completion": {
-			    "enabled": true
-			},
-			"jedi_hover": {
-			    "enabled": true
-			},
-			"jedi_references": {
-			    "enabled": true
-			},
-			"jedi_signature_help": {
-			    "enabled": true
-			},
-			"jedi_symbols": {
-			    "enabled": true,
-			    "all_scopes": true
-			},
-			"mccabe": {
-			    "enabled": true,
-			    "threshold": 15
-			},
-			"preload": {
-			    "enabled": true
-			},
-			"pycodestyle": {
-			    "enabled": true
-			},
-			"pydocstyle": {
-			    "enabled": false,
-			    "match": "(?!test_).*\\.py",
-			    "matchDir": "[^\\.].*"
-			},
-			"pyflakes": {
-			    "enabled": true
-			},
-			"rope_completion": {
-			    "enabled": true
-			},
-			"yapf": {
-			    "enabled": true
-			}
-		    }
-		}
-	    }
-	},
-	"golang": {
-	    "command": "gopls",
-	    "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-	    "filetypes": ["go"],
-	    "initializationOptions": {
-		"usePlaceholders": true
-	    }
-	},
-	"ccls": {
-	    "command": "ccls",
-	    "filetypes": ["c", "cpp", "objc", "objcpp"],
-	    "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-	    "initializationOptions": {
-		"cache": {
-		    "directory": "/tmp/ccls"
-		}
-	    }
-	},
-	"dart": {
-	    "command": "dart_language_server",
-	    "args": [],
-	    "filetypes": ["dart"],
-	    "initializationOptions": {},
-	    "settings": {
-		"dart": {
-		    "validation": {},
-		    "completion": {}
-		}
-	    }
-	}
+  "languageserver": {
+    "python": {
+      "command": "python",
+      "args": [
+        "-mpyls",
+        "-vv",
+        "--log-file",
+        "/tmp/lsp_python.log"
+      ],
+      "trace.server": "verbose",
+      "filetypes": [
+        "python"
+      ],
+      "settings": {
+        "pyls": {
+          "enable": true,
+          "trace": {
+            "server": "verbose"
+          },
+          "commandPath": "",
+          "configurationSources": [
+            "pycodestyle"
+          ],
+          "plugins": {
+            "jedi_completion": {
+              "enabled": true
+            },
+            "jedi_hover": {
+              "enabled": true
+            },
+            "jedi_references": {
+              "enabled": true
+            },
+            "jedi_signature_help": {
+              "enabled": true
+            },
+            "jedi_symbols": {
+              "enabled": true,
+              "all_scopes": true
+            },
+            "mccabe": {
+              "enabled": true,
+              "threshold": 15
+            },
+            "preload": {
+              "enabled": true
+            },
+            "pycodestyle": {
+              "enabled": true
+            },
+            "pydocstyle": {
+              "enabled": false,
+              "match": "(?!test_).*\\.py",
+              "matchDir": "[^\\.].*"
+            },
+            "pyflakes": {
+              "enabled": true
+            },
+            "rope_completion": {
+              "enabled": true
+            },
+            "yapf": {
+              "enabled": true
+            }
+          }
+        }
+      }
+    },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
+    },
+    "dart": {
+      "command": "dart_language_server",
+      "args": [],
+      "filetypes": ["dart"],
+      "initializationOptions": {},
+      "settings": {
+        "dart": {
+          "validation": {},
+          "completion": {}
+        }
+      }
     }
+  },
+  "java.format.settings.url": "/Users/bonjour/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml",
+  "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/bonjour/.config/coc/extensions/node_modules/coc-java-lombok/jar/lombok.jar\""
 }
