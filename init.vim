@@ -36,6 +36,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'morhetz/gruvbox'
 
+
+" Conjure
+"Plug 'Olical/conjure', {'tag': 'v4.21.0'}
+"Plug 'tpope/vim-dispatch'
+"Plug 'clojure-vim/vim-jack-in'
+"Plug 'radenling/vim-dispatch-neovim'
+
 call plug#end()
 
 "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -166,14 +173,14 @@ nnoremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
 
 
 "" Git
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gr :Gremove<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gd :Gvdiff<CR>
+" noremap <Leader>gs :Gstatus<CR>
+" noremap <Leader>ga :Gwrite<CR>
+" noremap <Leader>gc :Gcommit<CR>
+" noremap <Leader>gsh :Gpush<CR>
+" noremap <Leader>gb :Gblame<CR>
+" noremap <Leader>gr :Gremove<CR>
+" noremap <Leader>gll :Gpull<CR>
+" noremap <Leader>gd :Gvdiff<CR>
 
 
 
@@ -232,5 +239,7 @@ nmap <leader>0 <Plug>BuffetSwitch(10)
 
 
 function! g:BuffetSetCustomColors()
-  hi! BuffetCurrentBuffer cterm=NONE ctermbg=black ctermfg=white guibg=#0000FF guifg=#000000
+  hi! BuffetCurrentBuffer cterm=NONE ctermfg=15
+  hi! BuffetModCurrentBuffer cterm=reverse ctermbg=0 ctermfg=1
+  hi! BuffetBuffer cterm=NONE ctermbg=0 ctermfg=6
 endfunction
