@@ -32,9 +32,11 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'jparise/vim-graphql'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'morhetz/gruvbox'
+Plug 'leafOfTree/vim-vue-plugin'
 
 
 " Conjure
@@ -52,7 +54,8 @@ syntax on
 
 colorscheme gruvbox
 set bg=dark
-highlight Normal ctermbg=black ctermfg=white
+hi Normal guibg=NONE ctermbg=NONE
+"highlight Normal ctermbg=black ctermfg=white
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 set autoindent
@@ -75,6 +78,7 @@ set foldmethod=indent
 
 set modifiable
 set number
+set norelativenumber
 set nowrap
 set nobackup
 set noswapfile
@@ -142,6 +146,7 @@ nnoremap <c-h> <c-w><c-h>
 
 
 nnoremap <c-p> :FZF<CR>
+nnoremap <leader>b :Buffers<CR>
 
 "" Ctrlp
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
