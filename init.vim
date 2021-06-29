@@ -17,6 +17,7 @@ Plug 'dart-lang/dart-vim-plugin'
 
 Plug 'tmux-plugins/vim-tmux'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'spinks/vim-leader-guide'
 
 
 Plug 'jreybert/vimagit'
@@ -34,12 +35,18 @@ Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'brooth/far.vim'
 
 Plug 'morhetz/gruvbox'
 Plug 'leafOfTree/vim-vue-plugin'
+Plug 'zxqfl/tabnine-vim'
 
 
 " Conjure
+"Plug 'liuchengxu/vim-clap'
+"Plug 'guns/vim-sexp',    {'for': 'clojure'}
+"Plug 'liquidz/vim-iced', {'for': 'clojure'}
+
 "Plug 'Olical/conjure', {'tag': 'v4.21.0'}
 "Plug 'tpope/vim-dispatch'
 "Plug 'clojure-vim/vim-jack-in'
@@ -106,7 +113,9 @@ set tabstop=2
 set wildmenu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
-let mapleader=" " 
+let mapleader="\<Space>"
+nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
+vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
 
 
 " fast save and close
@@ -248,3 +257,10 @@ function! g:BuffetSetCustomColors()
   hi! BuffetModCurrentBuffer cterm=reverse ctermbg=0 ctermfg=1
   hi! BuffetBuffer cterm=NONE ctermbg=0 ctermfg=6
 endfunction
+
+
+let g:iced_enable_default_key_mappings = v:true
+
+set splitright
+let g:iced#buffer#stdout#mods = 'vertical'
+let g:iced#buffer#error#height = 5
