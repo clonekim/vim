@@ -1,6 +1,8 @@
 # VIM
 
- vim 이나 neovim를 설치한다
+[오픈Tutorial Vim강의](https://opentutorials.org/course/730)  
+[CoC](https://www.joinc.co.kr/w/man/12/neovim)
+
  
 ## 설치
 
