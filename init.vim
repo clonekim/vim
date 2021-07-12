@@ -226,12 +226,12 @@ let g:which_key_map.w = {
 
 let g:which_key_map.t = {
   \ 'name' : 'Toggle',
-  \ 'm' : [':set mouse=a'						, 'mouse on'],
-  \ 'M' : [':set mouse-=a'					, 'mouse off'],
-  \ 'n' : [':set number'						, 'line number on'],
-  \ 'N' : [':set nonumber'					, 'line number off'],
-  \ 'r' : [':set relativenumber'		, 'relative-number on'],
-  \ 'R' : [':set norelativenumber'	, 'relative-number off'],
+  \ 'm' : [':set mouse=a'             , 'mouse on'],
+  \ 'M' : [':set mouse-=a'            , 'mouse off'],
+  \ 'n' : [':set number'              , 'line number on'],
+  \ 'N' : [':set nonumber'            , 'line number off'],
+  \ 'r' : [':set relativenumber'      , 'relative-number on'],
+  \ 'R' : [':set norelativenumber'    , 'relative-number off'],
   \ }
 
 nnoremap <leader>ui mzgg=G`z<CR>
