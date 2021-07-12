@@ -207,6 +207,9 @@ let g:which_key_map.g = {
   \ 'name' : 'Git',
   \ 's' : [':Git'	  , 'status'],
   \ 'l' : [':Gclog'	, 'log'],
+  \ 'c' : [':Gcommit', 'commit'],
+  \ 'd' : [':Gdiff', 'dff'],
+  \ 'p' : [':Gpush'	, 'push'],
   \ }
 
 let g:which_key_map.w = {
