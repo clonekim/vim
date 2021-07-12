@@ -9,7 +9,11 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' } 
+Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
+
 Plug 'liuchengxu/vim-which-key'
+Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
@@ -39,6 +43,15 @@ if has("syntax")
 	syntax on
 endif
 
+if has("gui")
+  set guioptions=i
+  set guifont=DejaVu\ Sans\ Mono\ 9
+endif
+
+hi Normal guibg=NONE ctermbg=NONE
+highlight Normal ctermbg=black ctermfg=white
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+
 filetype on
 filetype plugin on
 filetype indent on
@@ -46,6 +59,7 @@ filetype indent on
 set nocompatible
 
 set autoindent
+set bg=dark
 set cindent
 set cmdheight=2
 set expandtab
@@ -128,6 +142,9 @@ let NERDTreeShowHidden=0
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_use_caching = 0
     
 let g:which_key_map = {}
 
@@ -135,7 +152,9 @@ let g:which_key_map = {}
 let g:which_key_map.a = {
   \ 'name' : 'Applications',
   \ 'n' : [':NERDTreeToggle', 'NERDTreeToggle'],
-  \ 'f' : [':NERDTreeFind'	, 'NERDTreeFind']
+  \ 'f' : [':NERDTreeFind'	, 'NERDTreeFind'],
+  \ 'o' : [':Files %:p:h', 'open current dir'],
+  \ 'r' : [':Rg', 'regrep search'],
   \ }
 
 let g:which_key_map.b = {
@@ -152,6 +171,7 @@ let g:which_key_map.b = {
   \ '0' : ['<Plug>BuffetSwitch(10)' , 'Switch to 10'],
   \ 'r' : [':e!' , 'revert'],
   \ 'q' : [':q!' , 'close'],
+  \ 'x' : [':x' , 'exit'],
   \ 'w' : [':w' , 'save'],
   \ 'W' : [':wq' , 'save & close'],
   \ 'k' : [':bdelete' , 'kill this buffer'],
@@ -189,6 +209,12 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 hi Pmenu ctermbg=black ctermfg=white
 
+function! g:BuffetSetCustomColors()
+ hi! BuffetCurrentBuffer cterm=NONE ctermfg=15
+ hi! BuffetModCurrentBuffer cterm=reverse ctermbg=0 ctermfg=1
+ hi! BuffetBuffer cterm=NONE ctermbg=0 ctermfg=6
+endfunction
+
 let g:which_key_map.c.c = 'coc-codeaction'
 let g:which_key_map.c.d = 'coc-definition'
 let g:which_key_map.c.f = 'coc-fix-current'
@@ -199,7 +225,6 @@ let g:which_key_map.c.t = 'coc-type-definition'
 
 let g:which_key_map.f = {
   \ 'name' : 'File',
-  \ 'r'    : [':Rg', 'regrep search'],
   \ }
 
 
@@ -216,6 +241,7 @@ let g:which_key_map.w = {
   \ 'name' : 'Windows',
   \ '-' : ['<C-W>s'						, 'split-window-below'],
   \ '+' : ['<C-W>v'						, 'split-window-right'],
+  \ '=' : ['<C-W>='						, 'window size to equal'],
   \ 'c' : ['<C-W>o'						, 'close windows but only'],
   \ 'h' : ['<C-W>H'						, 'window-to-lef'],
   \ 'j' : ['<C-W>J'						, 'window-to-bottom'],
@@ -235,6 +261,8 @@ let g:which_key_map.t = {
   \ 'N' : [':set nonumber'            , 'line number off'],
   \ 'r' : [':set relativenumber'      , 'relative-number on'],
   \ 'R' : [':set norelativenumber'    , 'relative-number off'],
+  \ 'j' : [':colorscheme jellybeans'   , 'jellybeans-themes'],
+  \ 'g' : [':colorscheme gruvbox'      , 'gruvbox-themes'],
   \ }
 
 nnoremap <leader>ui mzgg=G`z<CR>
@@ -249,4 +277,5 @@ let g:which_key_map.v = {
   \ 'Q' : [':qa',         'quit'],
   \ 'R' : [':source $MYVIMRC', 'reload vimrc'],
   \ 'e' : [':e $MYVIMRC', 'edit-vimrc'],
+  \ 'm' : [':Maps', 'show maps'],
   \ }
