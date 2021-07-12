@@ -1,6 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
@@ -60,37 +61,39 @@ set nocompatible
 
 set autoindent
 set bg=dark
-set cindent
+set copyindent
 set cmdheight=2
 set expandtab
 
-set hlsearch
 set history=100
 set hidden
+set hlsearch
 set incsearch
+set ignorecase
 
+set laststatus=2
 set modifiable
 set number
 set numberwidth=6
 set nowrap
 set nobackup
 set noswapfile
-set laststatus=2
+set relativenumber
 
 set signcolumn=yes
 set showcmd
 set showmatch
 set smartcase
 set softtabstop=2
+set shiftwidth=2
 set shortmess+=c
-set ts=4
+set tabstop=2
 set timeoutlen=300
 set wildmenu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.exe,*.flv,*.img,*.xlsx,*.docx,*.jpg,*.png,*.gif,*.pdf,*.class
 
 let mapleader="\<Space>" 
 
-nnoremap <leader> za
 nnoremap <tab> :bn<CR>
 nnoremap <s-tab> :bp<CR>
 
@@ -147,15 +150,19 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_use_caching = 0
     
 let g:which_key_map = {}
+let g:which_key_map['name'] = 'vim-world'
 
-
-let g:which_key_map.a = {
-  \ 'name' : 'Applications',
+let g:which_key_map.n = {
+  \ 'name' : 'Functions',
   \ 'n' : [':NERDTreeToggle', 'NERDTreeToggle'],
   \ 'f' : [':NERDTreeFind'	, 'NERDTreeFind'],
-  \ 'o' : [':Files %:p:h', 'open current dir'],
-  \ 'r' : [':Rg', 'regrep search'],
+  \ 'o' : [':Files %:p:h', 'Open Current Dir'],
+  \ 'r' : [':Rg', 'Regrep search'],
   \ }
+
+nnoremap <leader>ni mzgg=G`z<CR>
+let g:which_key_map.n.i = 'fix Indent'
+
 
 let g:which_key_map.b = {
   \ 'name' : 'Buffers',
@@ -169,13 +176,14 @@ let g:which_key_map.b = {
   \ '8' : ['<Plug>BuffetSwitch(8)' , 'Switch to 8'],
   \ '9' : ['<Plug>BuffetSwitch(9)' , 'Switch to 9'],
   \ '0' : ['<Plug>BuffetSwitch(10)' , 'Switch to 10'],
-  \ 'r' : [':e!' , 'revert'],
-  \ 'q' : [':q!' , 'close'],
-  \ 'x' : [':x' , 'exit'],
-  \ 'w' : [':w' , 'save'],
-  \ 'W' : [':wq' , 'save & close'],
-  \ 'k' : [':bdelete' , 'kill this buffer'],
-  \ 'l' : ['Buffers' , 'list'],
+  \ 'n' : [':enew' , 'New'],
+  \ 'r' : [':e!' , 'Revert'],
+  \ 'q' : [':q!' , 'Close'],
+  \ 'x' : [':x' , 'Exit'],
+  \ 'w' : [':w' , 'Save'],
+  \ 'W' : [':wq' , 'Save & Close'],
+  \ 'k' : [':bdelete' , 'Kill this buffer'],
+  \ 'l' : ['Buffers' , 'List'],
   \ }
 
 let g:which_key_map.c = {
@@ -215,11 +223,14 @@ function! g:BuffetSetCustomColors()
  hi! BuffetBuffer cterm=NONE ctermbg=0 ctermfg=6
 endfunction
 
+let g:which_key_map.p = 'which_key_ignore'
+
 let g:which_key_map.c.c = 'coc-codeaction'
 let g:which_key_map.c.d = 'coc-definition'
 let g:which_key_map.c.f = 'coc-fix-current'
 let g:which_key_map.c.i = 'coc-implementation'
 let g:which_key_map.c.h = 'show-document'
+let g:which_key_map.c.n = 'coc-rename'
 let g:which_key_map.c.r = 'coc-references'
 let g:which_key_map.c.t = 'coc-type-definition'
 
@@ -241,16 +252,22 @@ let g:which_key_map.w = {
   \ 'name' : 'Windows',
   \ '-' : ['<C-W>s'						, 'split-window-below'],
   \ '+' : ['<C-W>v'						, 'split-window-right'],
-  \ '=' : ['<C-W>='						, 'window size to equal'],
-  \ 'c' : ['<C-W>o'						, 'close windows but only'],
-  \ 'h' : ['<C-W>H'						, 'window-to-lef'],
-  \ 'j' : ['<C-W>J'						, 'window-to-bottom'],
-  \ 'k' : ['<C-W>K'						, 'window-to-top'],
-  \ 'l' : ['<C-W>L'						, 'window-to-right'],
-  \ 't' : ['<C-W>t'						, 'window-to-top-most'],
-  \ 'b' : ['<C-W>b'						, 'window-to-bottom-most'],
+  \ '=' : ['<C-W>='						, 'balance-window'],
+  \ 'c' : ['<C-W>c'						, 'close window'],
+  \ 'h' : ['<C-W>h'						, 'window-left'],
+  \ 'j' : ['<C-W>j'						, 'window-bottom'],
+  \ 'k' : ['<C-W>k'						, 'window-top'],
+  \ 'l' : ['<C-W>l'						, 'window-right'],
+  \ '0' : ['<C-W>o'						, 'close all but 1 left'],
+  \ '2' : ['<C-W>v'						, 'layout-double-columns'],
+  \ 't' : ['<C-W>t'						, 'to-top-most'],
+  \ 'b' : ['<C-W>b'						, 'to-bottom-most'],
   \ 'r' : ['<C-W>r'						, 'swap window-nearby'],
-  \ 'y' : ['<C-W>w'						, 'window-to-cycle'],
+  \ 'w' : ['<C-W>w'						, 'other-window'],
+  \ 'H' : ['<C-W>H'						, 'expand-window-left'],
+  \ 'J' : ['<C-W>J'						, 'expand-window-bottom'],
+  \ 'K' : ['<C-W>K'						, 'expand-window-top'],
+  \ 'L' : ['<C-W>L'						, 'expand-window-right'],
   \ }
 
 let g:which_key_map.t = {
@@ -264,13 +281,6 @@ let g:which_key_map.t = {
   \ 'j' : [':colorscheme jellybeans'   , 'jellybeans-themes'],
   \ 'g' : [':colorscheme gruvbox'      , 'gruvbox-themes'],
   \ }
-
-nnoremap <leader>ui mzgg=G`z<CR>
-let g:which_key_map.u = {
-  \ 'name' : 'Utility',
-  \ }
-
-let g:which_key_map.u.i = 'fix indent'
 
 let g:which_key_map.v = {
   \ 'name' : 'Vim Menu',
