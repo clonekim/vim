@@ -1,3 +1,4 @@
+
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
@@ -44,14 +45,14 @@ if has("syntax")
 	syntax on
 endif
 
-if has("gui")
+if has("gui_running")
   set guioptions=i
   set guifont=DejaVu\ Sans\ Mono\ 9
 endif
 
 hi Normal guibg=NONE ctermbg=NONE
-highlight Normal ctermbg=black ctermfg=white
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+"highlight Normal ctermbg=black ctermfg=white
+"highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 filetype on
 filetype plugin on
@@ -61,6 +62,7 @@ set nocompatible
 
 set autoindent
 set bg=dark
+set bufhidden=delete
 set copyindent
 set cmdheight=2
 set expandtab
@@ -73,6 +75,7 @@ set ignorecase
 
 set laststatus=2
 set modifiable
+set mouse=a
 set number
 set numberwidth=6
 set nowrap
@@ -88,7 +91,7 @@ set softtabstop=2
 set shiftwidth=2
 set shortmess+=c
 set tabstop=2
-set timeoutlen=300
+set timeoutlen=100
 set wildmenu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.exe,*.flv,*.img,*.xlsx,*.docx,*.jpg,*.png,*.gif,*.pdf,*.class
 
@@ -140,24 +143,27 @@ augroup END
 
 
 let NERDTreeShowHidden=0
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+let g:airline_powerline_fonts = 1
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_use_caching = 0
     
 let g:which_key_map = {}
-let g:which_key_map['name'] = 'vim-world'
+let g:which_key_map['name'] = 'Powered by VIM'
 
-let g:which_key_map.n = {
-  \ 'name' : 'Functions',
+let g:which_key_map.t = {
+  \ 'name' : 'Tools',
   \ 'n' : [':NERDTreeToggle', 'NERDTreeToggle'],
   \ 'f' : [':NERDTreeFind'	, 'NERDTreeFind'],
-  \ 'o' : [':Files %:p:h', 'Open Current Dir'],
+  \ 'o' : [':Files %:p:h', 'Open File explorer'],
+  \ 'i' : ['mzgg=G`z'   , 'fix Indent'],
   \ 'r' : [':Rg', 'Regrep search'],
+  \ 't' : [':term', 'Open Terminal'],
   \ }
 
-nnoremap <leader>ni mzgg=G`z<CR>
-let g:which_key_map.n.i = 'fix Indent'
 
 
 let g:which_key_map.b = {
@@ -178,9 +184,10 @@ let g:which_key_map.b = {
   \ 'x' : [':x' , 'Exit'],
   \ 'w' : [':w' , 'Save'],
   \ 'W' : [':wq' , 'Save & Close'],
-  \ 'k' : [':bdelete' , 'Kill this buffer'],
+  \ 'k' : [':bp\|bd #' , 'Kill this buffer'],
   \ 'l' : ['Buffers' , 'List'],
   \ }
+
 
 let g:which_key_map.c = {
   \ 'name' : 'CoC',
@@ -215,8 +222,8 @@ hi Pmenu ctermbg=black ctermfg=white
 
 function! g:BuffetSetCustomColors()
  hi! BuffetCurrentBuffer cterm=NONE ctermfg=15
- hi! BuffetModCurrentBuffer cterm=reverse ctermbg=0 ctermfg=1
- hi! BuffetBuffer cterm=NONE ctermbg=0 ctermfg=6
+ hi! BuffetModCurrentBuffer cterm=reverse ctermbg=15 ctermfg=1
+ hi! BuffetBuffer cterm=NONE ctermbg=0 ctermfg=7
 endfunction
 
 let g:which_key_map.p = 'which_key_ignore'
@@ -244,7 +251,31 @@ let g:which_key_map.g = {
   \ 'p' : [':Gpush'	, 'push'],
   \ }
 
-let g:which_key_map.w = {
+
+let g:which_key_map.o = {
+  \ 'name' : 'Options',
+  \ 'm' : [':set mouse=a'             , 'mouse on'],
+  \ 'M' : [':set mouse-=a'            , 'mouse off'],
+  \ 'n' : [':set number'              , 'line number on'],
+  \ 'N' : [':set nonumber'            , 'line number off'],
+  \ 'r' : [':set relativenumber'      , 'relative-number on'],
+  \ 'R' : [':set norelativenumber'    , 'relative-number off'],
+  \ 'j' : [':colorscheme jellybeans'   , 'jellybeans-themes'],
+  \ 'g' : [':colorscheme gruvbox'      , 'gruvbox-themes'],
+  \ }
+
+
+let g:which_key_map.v = {
+  \ 'name' : 'Vim Menu',
+  \ 'q' : [':qa',         'quit'],
+  \ 'Q' : [':qa!',         'Quit'],
+  \ 'R' : [':source $MYVIMRC', 'reload vimrc'],
+  \ 'e' : [':e $MYVIMRC', 'edit-vimrc'],
+  \ 'm' : [':Maps', 'show maps'],
+  \ }
+
+
+let g:which_key_map.W = {
   \ 'name' : 'Windows',
   \ '-' : ['<C-W>s'						, 'split-window-below'],
   \ '+' : ['<C-W>v'						, 'split-window-right'],
@@ -266,22 +297,5 @@ let g:which_key_map.w = {
   \ 'L' : ['<C-W>L'						, 'expand-window-right'],
   \ }
 
-let g:which_key_map.t = {
-  \ 'name' : 'Toggle',
-  \ 'm' : [':set mouse=a'             , 'mouse on'],
-  \ 'M' : [':set mouse-=a'            , 'mouse off'],
-  \ 'n' : [':set number'              , 'line number on'],
-  \ 'N' : [':set nonumber'            , 'line number off'],
-  \ 'r' : [':set relativenumber'      , 'relative-number on'],
-  \ 'R' : [':set norelativenumber'    , 'relative-number off'],
-  \ 'j' : [':colorscheme jellybeans'   , 'jellybeans-themes'],
-  \ 'g' : [':colorscheme gruvbox'      , 'gruvbox-themes'],
-  \ }
-
-let g:which_key_map.v = {
-  \ 'name' : 'Vim Menu',
-  \ 'Q' : [':qa',         'quit'],
-  \ 'R' : [':source $MYVIMRC', 'reload vimrc'],
-  \ 'e' : [':e $MYVIMRC', 'edit-vimrc'],
-  \ 'm' : [':Maps', 'show maps'],
-  \ }
+let g:buffet_always_show_tabline = 1
+let g:buffet_show_index = 1
