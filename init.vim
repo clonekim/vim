@@ -184,7 +184,7 @@ let g:which_key_map.b = {
   \ 'x' : [':x' , 'Exit'],
   \ 'w' : [':w' , 'Save'],
   \ 'W' : [':wq' , 'Save & Close'],
-  \ 'k' : [':bp\|bd #' , 'Kill this buffer'],
+  \ 'k' : [':bdelete' , 'Kill this buffer'],
   \ 'l' : ['Buffers' , 'List'],
   \ }
 
