@@ -47,7 +47,9 @@ endif
 
 if has("gui_running")
   set guioptions=i
-  set guifont=DejaVu\ Sans\ Mono\ 9
+  if !has("mac")
+    set guifont=DejaVu\ Sans\ Mono\ 9
+  endif
 endif
 
 hi Normal guibg=NONE ctermbg=NONE
@@ -145,7 +147,9 @@ augroup END
 let NERDTreeShowHidden=0
 nnoremap <C-n> :NERDTreeToggle<CR>
 
+if !has("mac")
 let g:airline_powerline_fonts = 1
+endif
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
