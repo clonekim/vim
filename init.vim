@@ -39,7 +39,7 @@ Plug 'majutsushi/tagbar'
 
 call plug#end()
 
-colorscheme jellybeans
+" colorscheme jellybeans
 
 if has("syntax")
 	syntax on
@@ -279,7 +279,7 @@ let g:which_key_map.v = {
   \ }
 
 
-let g:which_key_map.W = {
+let g:which_key_map.w = {
   \ 'name' : 'Windows',
   \ '-' : ['<C-W>s'						, 'split-window-below'],
   \ '+' : ['<C-W>v'						, 'split-window-right'],
