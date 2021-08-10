@@ -131,15 +131,15 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
-let mapleader="\<Space>" 
+let mapleader="," 
 
 nnoremap <tab> :bn<CR>
 nnoremap <s-tab> :bp<CR>
 
-call which_key#register('<Space>', "g:which_key_map")
+call which_key#register(',', "g:which_key_map")
 
-nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
+nnoremap <silent> <leader> :<c-u>WhichKey ','<CR>
+vnoremap <silent> <leader> :<c-u>WhichKeyVisual ','<CR>
 
 nnoremap <leader><space> :nohlsearch<CR>
 
