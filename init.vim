@@ -146,6 +146,7 @@ augroup END
 
 let NERDTreeShowHidden=0
 nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
 if !has("mac")
 let g:airline_powerline_fonts = 1
