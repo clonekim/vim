@@ -7,11 +7,10 @@ vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 let g:which_key_map = {}
 let g:which_key_map['name'] = 'Powered by VIM'
 
-let g:which_key_map.t = {
-  \ 'name' : 'Tools',
+let g:which_key_map.a = {
+  \ 'name' : 'Applications',
   \ 'n' : [':NERDTreeToggle', 'NERDTreeToggle'],
   \ 'f' : [':NERDTreeFind'	, 'NERDTreeFind'],
-  \ 'i' : ['mzgg=G`z'   , 'fix Indent'],
   \ 't' : [':term', 'Open Terminal'],
   \ }
 
@@ -36,6 +35,7 @@ let g:which_key_map.b = {
   \ 'w' : [':w' , 'Save'],
   \ 'W' : [':wq' , 'Save & Close'],
   \ 'k' : [':bdelete' , 'Kill this buffer'],
+  \ 'K' : [':1, $bd!' , 'Kill all buffers'],
   \ 'l' : ['Buffers' , 'List'],
   \ }
 
@@ -59,6 +59,7 @@ let g:which_key_map.c.t = 'coc-type-definition'
 
 let g:which_key_map.f = {
   \ 'name' : 'File',
+  \ 'i' : ['mzgg=G`z'   , 'fix Indent'],
   \ }
 
 

@@ -17,7 +17,6 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'bagrat/vim-buffet'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': {-> fzf#install()} }
@@ -53,6 +52,7 @@ set autoindent
 set bg=dark
 set bufhidden=delete
 set copyindent
+set clipboard=unnamedplus
 set cmdheight=2
 set expandtab
 
