@@ -34,6 +34,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 Plug 'majutsushi/tagbar'
+Plug 't9md/vim-choosewin'
 
 call plug#end()
 
@@ -76,6 +77,7 @@ set signcolumn=yes
 set showcmd
 set showmatch
 set smartcase
+set scrolloff=3
 set softtabstop=2
 set shiftwidth=2
 set shortmess+=c
@@ -85,6 +87,12 @@ set wildmenu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.exe,*.flv,*.img,*.xlsx,*.docx,*.jpg,*.png,*.gif,*.pdf,*.class
 
 let mapleader="\<Space>" 
+
+map tt :tabnew
+map <M-Right> :tabn<CR>
+imap <M-Right> <ESC>:tabn<CR>
+map <M-Left> :tabp<CR>
+imap <M-Left> <ESC>:tabp<CR>
 
 nnoremap <tab> :bn<CR>
 nnoremap <s-tab> :bp<CR>
@@ -105,3 +113,4 @@ so $HOME/.config/nvim/ctrlp.vim
 so $HOME/.config/nvim/javascript.vim
 so $HOME/.config/nvim/coc.vim
 so $HOME/.config/nvim/which_key.vim
+so $HOME/.config/nvim/vim-choosewin.vim

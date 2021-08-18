@@ -12,6 +12,7 @@ let g:which_key_map.a = {
   \ 'n' : [':NERDTreeToggle', 'NERDTreeToggle'],
   \ 'f' : [':NERDTreeFind'	, 'NERDTreeFind'],
   \ 't' : [':term', 'Open Terminal'],
+  \ 'T' : [':Tags'	, 'Tags'],
   \ }
 
 
@@ -36,7 +37,9 @@ let g:which_key_map.b = {
   \ 'W' : [':wq' , 'Save & Close'],
   \ 'k' : [':bdelete' , 'Kill this buffer'],
   \ 'K' : [':1, $bd!' , 'Kill all buffers'],
-  \ 'l' : ['Buffers' , 'List'],
+  \ 'b' : ['Buffers' , 'List'],
+  \ 'B' : [':BLines' , 'BLines'],
+  \ 'L' : [':Lines' , 'Lines'],
   \ }
 
 
@@ -70,6 +73,7 @@ let g:which_key_map.g = {
   \ 'c' : [':Gcommit', 'commit'],
   \ 'd' : [':Gdiff', 'dff'],
   \ 'p' : [':Gpush'	, 'push'],
+  \ 'u' : [':Git pull'	, 'pull'],
   \ }
 
 
@@ -96,11 +100,12 @@ let g:which_key_map.t = {
 
 let g:which_key_map.v = {
   \ 'name' : 'Vim Menu',
+  \ 'c' : [':Commands',  'Commands'],
   \ 'q' : [':qa',         'quit'],
   \ 'Q' : [':qa!',         'Quit'],
-  \ 'R' : [':source $MYVIMRC', 'reload vimrc'],
-  \ 'e' : [':e $MYVIMRC', 'edit-vimrc'],
-  \ 'm' : [':Maps', 'show maps'],
+  \ 'R' : [':source $MYVIMRC', 'Reload vimrc'],
+  \ 'e' : [':e $MYVIMRC', 'Edit vimrc'],
+  \ 'm' : [':Maps', 'Maps'],
   \ }
 
 
