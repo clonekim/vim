@@ -10,7 +10,7 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' } 
-Plug 'chriskempson/base16-vim'
+Plug 'colepeters/spacemacs-theme.vim'
 Plug 'morhetz/gruvbox'
 
 Plug 'liuchengxu/vim-which-key'
@@ -43,6 +43,11 @@ if has("syntax")
 	syntax on
 endif
 
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+colorscheme spacemacs-theme
 
 filetype on
 filetype plugin on
@@ -119,4 +124,3 @@ so $HOME/.config/nvim/any-jump.vim
 so $HOME/.config/nvim/which_key.vim
 " so $HOME/.config/nvim/vim-choosewin.vim
 
-let g:any_jump_disable_default_keybindings = 1
