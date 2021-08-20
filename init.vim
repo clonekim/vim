@@ -10,7 +10,7 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' } 
-Plug 'chriskempson/base16-vim'
+Plug 'colepeters/spacemacs-theme.vim'
 Plug 'morhetz/gruvbox'
 
 Plug 'liuchengxu/vim-which-key'
@@ -42,6 +42,11 @@ if has("syntax")
 	syntax on
 endif
 
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+colorscheme spacemacs-theme
 
 filetype on
 filetype plugin on
@@ -54,7 +59,7 @@ set bg=dark
 set bufhidden=delete
 set copyindent
 set clipboard=unnamedplus
-set cmdheight=2
+set cmdheight=1
 set expandtab
 
 set history=100
