@@ -34,7 +34,8 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 Plug 'majutsushi/tagbar'
-Plug 't9md/vim-choosewin'
+" Plug 't9md/vim-choosewin'
+Plug 'pechorin/any-jump.vim'
 
 call plug#end()
 
@@ -49,12 +50,14 @@ filetype indent on
 
 set nocompatible
 
+colorscheme jellybeans
+
 set autoindent
 set bg=dark
 set bufhidden=delete
 set copyindent
-set clipboard=unnamedplus
-set cmdheight=2
+set clipboard=unnamed,unnamedplus
+set cmdheight=1
 set expandtab
 
 set history=100
@@ -112,5 +115,8 @@ so $HOME/.config/nvim/nerdtree.vim
 so $HOME/.config/nvim/ctrlp.vim
 so $HOME/.config/nvim/javascript.vim
 so $HOME/.config/nvim/coc.vim
+so $HOME/.config/nvim/any-jump.vim
 so $HOME/.config/nvim/which_key.vim
-so $HOME/.config/nvim/vim-choosewin.vim
+" so $HOME/.config/nvim/vim-choosewin.vim
+
+let g:any_jump_disable_default_keybindings = 1

@@ -50,6 +50,7 @@ let g:which_key_map.c = {
 
 
 let g:which_key_map.p = 'which_key_ignore'
+let g:which_key_map.j = 'which_key_ignore'
 
 let g:which_key_map.c.c = 'coc-codeaction'
 let g:which_key_map.c.d = 'coc-definition'
@@ -76,6 +77,15 @@ let g:which_key_map.g = {
   \ 'u' : [':Git pull'	, 'pull'],
   \ }
 
+
+let g:which_key_map.j = {
+  \ 'name' : 'Jump',
+  \ 'c' : [':clearjumps'        , 'clear'],
+  \ 'j' : [':AnyJump'           , 'AnyJump'],
+  \ 'b' : [':AnyJumpBack'       , 'AnyJumpBack'],
+  \ 'l' : [':AnyJumpLastResults', 'AnyJumpLastResults'],
+  \ 'v' : [':AnyJumpVisual'     , 'AnyJumpVisual'],
+  \ }
 
 let g:which_key_map.o = {
   \ 'name' : 'Vim Options',
