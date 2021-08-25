@@ -1,5 +1,13 @@
 call plug#begin('~/.config/nvim/plugged')
 
+"if has('nvim')
+"  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/defx.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
@@ -47,15 +55,13 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme spacemacs-theme
+colorscheme gruvbox
 
 filetype on
 filetype plugin on
 filetype indent on
 
 set nocompatible
-
-colorscheme jellybeans
 
 set autoindent
 set bg=dark
@@ -117,10 +123,10 @@ so $HOME/.config/nvim/color.vim
 so $HOME/.config/nvim/airline.vim
 so $HOME/.config/nvim/buffet.vim
 so $HOME/.config/nvim/nerdtree.vim
+"so $HOME/.config/nvim/defx.vim
 so $HOME/.config/nvim/ctrlp.vim
 so $HOME/.config/nvim/javascript.vim
 so $HOME/.config/nvim/coc.vim
 so $HOME/.config/nvim/any-jump.vim
 so $HOME/.config/nvim/which_key.vim
-" so $HOME/.config/nvim/vim-choosewin.vim
 
