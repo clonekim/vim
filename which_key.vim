@@ -38,8 +38,6 @@ let g:which_key_map.b = {
   \ 'k' : [':bdelete' , 'Kill this buffer'],
   \ 'K' : [':1, $bd!' , 'Kill all buffers'],
   \ 'b' : ['Buffers' , 'List'],
-  \ 'B' : [':BLines' , 'BLines'],
-  \ 'L' : [':Lines' , 'Lines'],
   \ }
 
 
@@ -98,6 +96,8 @@ let g:which_key_map.o = {
 
 let g:which_key_map.s = {
   \ 'name' : 'Search',
+  \ 'b' : [':BLines' , 'Current Buffer'],
+  \ 'B' : [':Lines' , 'All Buffers'],
   \ 'f' : [':Files %:p:h', 'Listing files'],
   \ 'r' : [':Rg', 'Regrep search'],
   \ }

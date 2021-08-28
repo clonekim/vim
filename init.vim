@@ -35,6 +35,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'fatih/vim-go'
+Plug 'davidhalter/jedi-vim' 
+Plug 'nvie/vim-flake8'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
@@ -42,7 +44,6 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 Plug 'majutsushi/tagbar'
-" Plug 't9md/vim-choosewin'
 Plug 'pechorin/any-jump.vim'
 
 call plug#end()
@@ -57,9 +58,7 @@ endif
 
 colorscheme gruvbox
 
-filetype on
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 set nocompatible
 
@@ -88,6 +87,7 @@ set noswapfile
 set relativenumber
 
 set signcolumn=yes
+set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\ 
 set showcmd
 set showmatch
 set smartcase
@@ -129,4 +129,14 @@ so $HOME/.config/nvim/javascript.vim
 so $HOME/.config/nvim/coc.vim
 so $HOME/.config/nvim/any-jump.vim
 so $HOME/.config/nvim/which_key.vim
+
+" https://www.gitmemory.com/issue/junegunn/fzf.vim/374/712076745
+"command! -bang -nargs=* CustomBLines
+"    \ call fzf#vim#grep(
+"    \   'rg --with-filename --column --line-number --no-heading --smart-case . '.fnameescape(expand('%:p')), 1,
+"    \   fzf#vim#with_preview({'options': '--keep-right --delimiter : --nth 4.. --preview "bat -p --color always {}"'}, 'right:60%' ))
+"nnoremap <leader>/ :CustomBLines<Cr>
+"
+"
+"let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 }}
 
