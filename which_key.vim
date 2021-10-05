@@ -62,6 +62,7 @@ let g:which_key_map.c.t = 'coc-type-definition'
 let g:which_key_map.f = {
   \ 'name' : 'File',
   \ 'i' : ['mzgg=G`z'   , 'fix Indent'],
+  \ 's' : [':w' , 'Save'],
   \ }
 
 
