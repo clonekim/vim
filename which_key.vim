@@ -35,8 +35,8 @@ let g:which_key_map.b = {
   \ 'x' : [':x' , 'Exit'],
   \ 'w' : [':w' , 'Save'],
   \ 'W' : [':wq' , 'Save & Close'],
-  \ 'k' : [':bdelete' , 'Kill this buffer'],
-  \ 'K' : [':1, $bd!' , 'Kill all buffers'],
+  \ 'd' : [':bdelete' , 'Kill this buffer'],
+  \ 'D' : [':1, $bd!' , 'Kill all buffers'],
   \ 'b' : ['Buffers' , 'List'],
   \ }
 
@@ -77,14 +77,6 @@ let g:which_key_map.g = {
   \ }
 
 
-let g:which_key_map.j = {
-  \ 'name' : 'Jump',
-  \ 'c' : [':clearjumps'        , 'clear'],
-  \ 'j' : [':AnyJump'           , 'AnyJump'],
-  \ 'b' : [':AnyJumpBack'       , 'AnyJumpBack'],
-  \ 'l' : [':AnyJumpLastResults', 'AnyJumpLastResults'],
-  \ 'v' : [':AnyJumpVisual'     , 'AnyJumpVisual'],
-  \ }
 
 let g:which_key_map.o = {
   \ 'name' : 'Vim Options',
@@ -105,6 +97,7 @@ let g:which_key_map.s = {
 
 let g:which_key_map.t = {
   \ 'name' : 'Theme',
+  \ 'c' : [':Color'   , 'Color'],
   \ 'j' : [':colorscheme jellybeans'   , 'jellybeans-themes'],
   \ 'g' : [':colorscheme gruvbox'      , 'gruvbox-themes'],
   \ }

@@ -1,24 +1,13 @@
 call plug#begin('~/.config/nvim/plugged')
 
-"if has('nvim')
-"  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-"else
-"  Plug 'Shougo/defx.nvim'
-"  Plug 'roxma/nvim-yarp'
-"  Plug 'roxma/vim-hug-neovim-rpc'
-"endif
-
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 
-Plug 'tmux-plugins/vim-tmux'
-Plug 'christoomey/vim-tmux-navigator'
-
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' } 
-Plug 'colepeters/spacemacs-theme.vim'
 Plug 'morhetz/gruvbox'
 
 Plug 'liuchengxu/vim-which-key'
@@ -35,8 +24,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'fatih/vim-go'
-Plug 'davidhalter/jedi-vim' 
-Plug 'nvie/vim-flake8'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
@@ -44,7 +31,6 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 Plug 'majutsushi/tagbar'
-Plug 'pechorin/any-jump.vim'
 
 call plug#end()
 
@@ -66,7 +52,7 @@ set autoindent
 set bg=dark
 set bufhidden=delete
 set copyindent
-set clipboard=unnamed,unnamedplus
+set clipboard=unnamedplus
 set cmdheight=1
 set expandtab
 
@@ -102,11 +88,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.exe,*.flv,*.img,*.xlsx,*.docx,*
 
 let mapleader="\<Space>" 
 
-map tt :tabnew
-map <M-Right> :tabn<CR>
-imap <M-Right> <ESC>:tabn<CR>
-map <M-Left> :tabp<CR>
-imap <M-Left> <ESC>:tabp<CR>
 
 nnoremap <tab> :bn<CR>
 nnoremap <s-tab> :bp<CR>
@@ -117,26 +98,23 @@ nnoremap <c-k> <c-w><c-k>
 nnoremap <c-l> <c-w><c-l>
 nnoremap <c-h> <c-w><c-h>
 
+let g:indentLine_color_term = 'lightblue'
+let g:indentLine_setConceal = 0
+
+" Resize window
+nmap <C-w><left> <C-w><
+nmap <C-w><right> <C-w>>
+nmap <C-w><up> <C-w>+
+nmap <C-w><down> <C-w>-
 
 so $HOME/.config/nvim/font.vim
 so $HOME/.config/nvim/color.vim
 so $HOME/.config/nvim/airline.vim
 so $HOME/.config/nvim/buffet.vim
 so $HOME/.config/nvim/nerdtree.vim
-"so $HOME/.config/nvim/defx.vim
 so $HOME/.config/nvim/ctrlp.vim
 so $HOME/.config/nvim/javascript.vim
 so $HOME/.config/nvim/coc.vim
-so $HOME/.config/nvim/any-jump.vim
 so $HOME/.config/nvim/which_key.vim
 
-" https://www.gitmemory.com/issue/junegunn/fzf.vim/374/712076745
-"command! -bang -nargs=* CustomBLines
-"    \ call fzf#vim#grep(
-"    \   'rg --with-filename --column --line-number --no-heading --smart-case . '.fnameescape(expand('%:p')), 1,
-"    \   fzf#vim#with_preview({'options': '--keep-right --delimiter : --nth 4.. --preview "bat -p --color always {}"'}, 'right:60%' ))
-"nnoremap <leader>/ :CustomBLines<Cr>
-"
-"
 "let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 }}
-

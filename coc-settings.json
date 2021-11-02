@@ -84,20 +84,6 @@
           "directory": "/tmp/ccls"
         }
       }
-    },
-    "dart": {
-      "command": "dart_language_server",
-      "args": [],
-      "filetypes": ["dart"],
-      "initializationOptions": {},
-      "settings": {
-        "dart": {
-          "validation": {},
-          "completion": {}
-        }
-      }
     }
-  },
-  "java.format.settings.url": "/Users/bonjour/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml",
-  "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/bonjour/.config/coc/extensions/node_modules/coc-java-lombok/jar/lombok.jar\""
+  }
 }
