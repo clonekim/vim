@@ -1,5 +1,7 @@
 let g:buffet_always_show_tabline = 1
 let g:buffet_show_index = 1
+let g:buffet_use_devicons = 1
+let g:buffet_hidden_buffers = ['terminal', 'defx']
 
 function! g:BuffetSetCustomColors()
  hi! BuffetCurrentBuffer cterm=NONE ctermfg=15
