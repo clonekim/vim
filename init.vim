@@ -7,18 +7,18 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 
-Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' } 
+Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
 Plug 'morhetz/gruvbox'
 
 Plug 'liuchengxu/vim-which-key'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 't9md/vim-choosewin'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'bagrat/vim-buffet'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': {-> fzf#install()} }
 Plug 'junegunn/fzf.vim'
-
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -107,7 +107,6 @@ nmap <C-w><right> <C-w>>
 nmap <C-w><up> <C-w>+
 nmap <C-w><down> <C-w>-
 
-so $HOME/.config/nvim/font.vim
 so $HOME/.config/nvim/color.vim
 so $HOME/.config/nvim/airline.vim
 so $HOME/.config/nvim/buffet.vim
@@ -116,5 +115,7 @@ so $HOME/.config/nvim/ctrlp.vim
 so $HOME/.config/nvim/javascript.vim
 so $HOME/.config/nvim/coc.vim
 so $HOME/.config/nvim/which_key.vim
+so $HOME/.config/nvim/vim-choosewin.vim
+
 
 "let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 }}
