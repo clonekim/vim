@@ -51,7 +51,7 @@ endif
 
 
 filetype plugin indent on
-colorschem jellybeans
+"colorschem jellybeans
 
 set nocompatible
 set autoindent

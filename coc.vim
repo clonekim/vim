@@ -20,18 +20,18 @@ if has('nvim')
    inoremap <silent><expr> <c-space> coc#refresh()
 else
    inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-
-nmap <silent> cc <Plug>(coc-codeaction)
-nmap <silent> cf <Plug>(coc-fix-current)
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-nmap <silent> cd <Plug>(coc-definition)
-nmap <silent> ct <Plug>(coc-type-definition)
-nmap <silent> ci <Plug>(coc-implementation)
-nmap <silent> cr <Plug>(coc-references)
-nmap <silent> cn <Plug>(coc-rename)
+endif                                                       
+                                                            
+                                                            
+nmap <leader> cc <Plug>(coc-codeaction)                           
+nmap <leader> cf <Plug>(coc-fix-current)                    
+nmap <leader> [g <Plug>(coc-diagnostic-prev)                
+nmap <leader> ]g <Plug>(coc-diagnostic-next)                
+nmap <leader> cd <Plug>(coc-definition)
+nmap <leader> ct <Plug>(coc-type-definition)
+nmap <leader> ci <Plug>(coc-implementation)
+nmap <leader> cr <Plug>(coc-references)
+nmap <leader> cn <Plug>(coc-rename)
 
 
 " <Backspace> 키가 지시자 제거, 기존 자동완성 양식 폐기

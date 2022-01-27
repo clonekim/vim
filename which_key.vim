@@ -19,16 +19,6 @@ let g:which_key_map.a = {
 
 let g:which_key_map.b = {
   \ 'name' : 'Buffers',
-  \ '1' : ['<Plug>BuffetSwitch(1)' , 'Switch to 1'],
-  \ '2' : ['<Plug>BuffetSwitch(2)' , 'Switch to 2'],
-  \ '3' : ['<Plug>BuffetSwitch(3)' , 'Switch to 3'],
-  \ '4' : ['<Plug>BuffetSwitch(4)' , 'Switch to 4'],
-  \ '5' : ['<Plug>BuffetSwitch(5)' , 'Switch to 5'],
-  \ '6' : ['<Plug>BuffetSwitch(6)' , 'Switch to 6'],
-  \ '7' : ['<Plug>BuffetSwitch(7)' , 'Switch to 7'],
-  \ '8' : ['<Plug>BuffetSwitch(8)' , 'Switch to 8'],
-  \ '9' : ['<Plug>BuffetSwitch(9)' , 'Switch to 9'],
-  \ '0' : ['<Plug>BuffetSwitch(10)' , 'Switch to 10'],
   \ 'n' : [':enew' , 'New'],
   \ 'r' : [':e!' , 'Revert'],
   \ 'q' : [':q!' , 'Close'],
